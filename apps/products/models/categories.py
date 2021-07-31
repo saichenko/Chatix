@@ -18,7 +18,7 @@ class Category(BaseModel):
     )
     shop = models.ForeignKey(
         verbose_name=_("shop"),
-        to="shops.Shops",
+        to="shops.Shop",
         on_delete=models.CASCADE,
         related_name="categories"
     )

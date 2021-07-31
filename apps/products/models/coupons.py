@@ -40,4 +40,4 @@ class Coupon(BaseModel):
     class Meta:
         verbose_name = _("coupon")
         verbose_name_plural = _("coupons")
-        unique_together = (("code", "products"),)
+        #unique_together = (("code", "products__shop"),)
