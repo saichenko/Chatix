@@ -19,3 +19,18 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True
+
+
+class BaseAttachmentModel(BaseModel):
+    """Base model for attachment models.
+
+    This class adds to models `file` field. Inherited from `BaseModel`.
+    """
+
+    file = models.FileField(
+        verbose_name=_("file"),
+        upload_to="attachments/"
+    )
+
+    class Meta:
+        abstract = True
