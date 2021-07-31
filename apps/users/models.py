@@ -1,13 +1,9 @@
-from django.conf import settings
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.contrib.auth.models import UserManager as DjangoUserManager
 from django.contrib.postgres.fields import CICharField
 from django.core import validators
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-
-from imagekit import models as imagekitmodels
-from imagekit.processors import ResizeToFill, Transpose
 
 from apps.core.models import BaseModel
 
@@ -47,20 +43,9 @@ class User(
 ):
     """Custom user model without username."""
 
-    first_name = models.CharField(
-        verbose_name=_("First name"),
-        max_length=30,
-        blank=True
-    )
-    last_name = models.CharField(
-        verbose_name=_("Last name"),
-        max_length=30,
-        blank=True
-    )
     email = CICharField(
-        verbose_name=_("Email address"),
+        verbose_name=_("email"),
         max_length=254,  # to be compliant with RFCs 3696 and 5321
-        blank=False,
         unique=True,
         validators=[validators.validate_email]
     )
@@ -72,29 +57,11 @@ class User(
         ),
     )
     is_active = models.BooleanField(
-        verbose_name=_("Active"),
+        verbose_name=_("active"),
         default=True,
         help_text=_(
             "Designates whether this user should be treated as active."
         ),
-    )
-
-    avatar = imagekitmodels.ProcessedImageField(
-        verbose_name=_("Avatar"),
-        blank=True,
-        null=True,
-        upload_to=settings.DEFAULT_MEDIA_PATH,
-        max_length=512,
-        processors=[Transpose()],
-        options={
-            "quality": 100,
-        }
-    )
-    avatar_thumbnail = imagekitmodels.ImageSpecField(
-        source="avatar",
-        processors=[
-            ResizeToFill(50, 50)
-        ],
     )
 
     EMAIL_FIELD = "email"
