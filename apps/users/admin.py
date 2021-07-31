@@ -60,6 +60,6 @@ class UserAdmin(DjangoUserAdmin):
         }),
     )
     readonly_fields = DjangoUserAdmin.readonly_fields + (
-        "created",
-        "modified",
+        "created_at",
+        "modified_at",
     )
