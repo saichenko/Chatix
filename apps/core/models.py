@@ -1,4 +1,3 @@
-from django.contrib.gis.db.models.fields import PointField
 from django.db import models
 from django.utils.translation import gettext as _
 
@@ -83,28 +82,6 @@ class BaseOrderModel(BaseModel):
         abstract = True
 
 
-class BaseAddressModel(models.Model):
-    """Represent users geolocation for delivery base model.
-
-    This class adds `point` and `details` to model.
-    """
-
-    point = PointField(
-        verbose_name=_("point")
-    )
-    details = models.TextField(
-        verbose_name=_("additional"),
-        max_length=1024,
-        help_text=_(
-            "Indicate the entrance, floor and other "
-            "information for the courier."
-        )
-    )
-
-    class Meta:
-        abstract = True
-
-
 class BaseMessengerUserModel(BaseModel):
     """Represent user of messenger.
 
@@ -115,6 +92,16 @@ class BaseMessengerUserModel(BaseModel):
         verbose_name=_("phone number"),
         max_length=18,
         null=True,
+        blank=True
+    )
+    addresses = models.ManyToManyField(
+        verbose_name=_("addresses"),
+        to="products.Address",
+        blank=True
+    )
+    used_coupons = models.ManyToManyField(
+        verbose_name=_("used coupons"),
+        to="products.Coupon",
         blank=True
     )
 
