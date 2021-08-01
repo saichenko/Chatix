@@ -49,6 +49,13 @@ class User(
         unique=True,
         validators=[validators.validate_email]
     )
+    invited_by = models.ForeignKey(
+        verbose_name=_("invited by"),
+        to="self",
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL
+    )
     is_staff = models.BooleanField(
         verbose_name=_("Staff status"),
         default=False,

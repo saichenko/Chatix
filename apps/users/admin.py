@@ -2,7 +2,6 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import gettext_lazy as _
 
-
 from .models import User
 
 
@@ -14,6 +13,8 @@ class UserAdmin(DjangoUserAdmin):
         "email",
         "is_staff",
         "is_superuser",
+        "invited_by",
+        "created_at",
     )
     list_display_links = (
         "email",
