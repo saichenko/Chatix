@@ -11,13 +11,13 @@ class ProductAdmin(admin.ModelAdmin):
         "name",
         "price",
         "is_hidden",
-        "has_instances",
+        "is_digital",
         "created_at",
         "modified_at",
     )
     list_filter = (
         "is_hidden",
-        "has_instances",
+        "is_digital",
         "created_at",
         "modified_at",
     )

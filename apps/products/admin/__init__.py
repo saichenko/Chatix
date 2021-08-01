@@ -1,5 +1,5 @@
-from .attachments import ProductAttachment, ProductInstanceAttachment
+from .attachments import ProductAttachmentAdmin, ProductInstanceAttachmentAdmin
 from .categories import CategoryAdmin
-from .products import Product
-from .product_instances import ProductInstance
-from .coupons import Coupon
+from .coupons import CouponAdmin
+from .product_instances import ProductInstanceAdmin
+from .products import ProductAdmin

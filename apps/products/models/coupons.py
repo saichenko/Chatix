@@ -1,5 +1,8 @@
+from datetime import date
+
 from django.contrib.postgres.fields import CICharField
-from django.core.validators import MinValueValidator, MaxValueValidator
+from django.core.validators import MaxValueValidator
+from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -31,7 +34,10 @@ class Coupon(BaseModel):
     expires_in = models.DateField(
         verbose_name=_("expires in"),
         blank=True,
-        null=True
+        null=True,
+        validators=[
+            MinValueValidator(date.today())
+        ]
     )
 
     def __str__(self):
@@ -40,4 +46,3 @@ class Coupon(BaseModel):
     class Meta:
         verbose_name = _("coupon")
         verbose_name_plural = _("coupons")
-        #unique_together = (("code", "products__shop"),)

@@ -40,12 +40,17 @@ class Product(BaseModel):
         max_digits=10,
         decimal_places=2
     )
+    amount = models.PositiveSmallIntegerField(
+        verbose_name=_("amount"),
+        blank=True,
+        null=True
+    )
     is_hidden = models.BooleanField(
         verbose_name=_("is hidden"),
         default=False
     )
-    has_instances = models.BooleanField(
-        verbose_name=_("has instances"),
+    is_digital = models.BooleanField(
+        verbose_name=_("is digital product"),
         default=False
     )
 
