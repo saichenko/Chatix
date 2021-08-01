@@ -5,6 +5,8 @@ from ..models.teleorders import TeleOrder
 
 @admin.register(TeleOrder)
 class TeleOrderAdmin(admin.ModelAdmin):
+    """Represent admin dashboard for TeleOrder model."""
+
     list_display = (
         "product",
         "teleuser",

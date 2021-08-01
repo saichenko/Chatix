@@ -20,6 +20,8 @@ class ProductAttachmentAdmin(admin.ModelAdmin):
 
 @admin.register(ProductInstanceAttachment)
 class ProductInstanceAttachmentAdmin(admin.ModelAdmin):
+    """Represent admin dashboard for ProductInstanceAttachment model."""
+
     list_display = (
         "product_instance",
         "created_at",

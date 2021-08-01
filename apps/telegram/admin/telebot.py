@@ -5,6 +5,8 @@ from ..models.telebots import TeleBot
 
 @admin.register(TeleBot)
 class TeleBotAdmin(admin.ModelAdmin):
+    """Represent admin dashboard for TeleBot model."""
+
     list_display = (
         "shop",
         "username",
