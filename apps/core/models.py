@@ -1,6 +1,6 @@
+from django.contrib.gis.db.models.fields import PointField
 from django.db import models
 from django.utils.translation import gettext as _
-from django.contrib.gis.db.models.fields import PointField
 
 
 class BaseModel(models.Model):
