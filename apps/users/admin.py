@@ -13,6 +13,8 @@ class UserAdmin(DjangoUserAdmin):
         "email",
         "is_staff",
         "is_superuser",
+        "invited_by",
+        "created_at",
     )
     list_display_links = (
         "email",
