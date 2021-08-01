@@ -5,6 +5,8 @@ from ..models.product_instances import ProductInstance
 
 @admin.register(ProductInstance)
 class ProductInstanceAdmin(admin.ModelAdmin):
+    """Represent admin dashboard for ProductInstance model."""
+
     list_display = (
         "product",
         "is_bought",

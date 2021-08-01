@@ -5,6 +5,8 @@ from ..models.products import Product
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
+    """Represent admin dashboard for Product model."""
+
     list_display = (
         "category",
         "shop",

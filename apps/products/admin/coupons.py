@@ -5,6 +5,8 @@ from ..models.coupons import Coupon
 
 @admin.register(Coupon)
 class CouponAdmin(admin.ModelAdmin):
+    """Represent admin dashboard for Coupon model."""
+
     list_display = (
         "code",
         "discount",

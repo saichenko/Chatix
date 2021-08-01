@@ -5,6 +5,8 @@ from ..models.attachments import ProductAttachment, ProductInstanceAttachment
 
 @admin.register(ProductAttachment)
 class ProductAttachmentAdmin(admin.ModelAdmin):
+    """Represent admin dashboard for ProductAttachment moddel."""
+
     list_display = (
         "product",
         "created_at",

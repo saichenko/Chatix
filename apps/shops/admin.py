@@ -5,6 +5,8 @@ from .models import Shop
 
 @admin.register(Shop)
 class ShopAdmin(admin.ModelAdmin):
+    """Represent admin dashboard for Shop model."""
+
     list_display = (
         "owner",
         "name",

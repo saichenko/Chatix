@@ -5,6 +5,8 @@ from ..models.teleusers import TeleUser
 
 @admin.register(TeleUser)
 class TeleUserAdmin(admin.ModelAdmin):
+    """Represent admin dashboard for TeleUser model."""
+
     list_display = (
         "id",
         "username",
