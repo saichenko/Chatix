@@ -14,6 +14,7 @@ class ProductAttachment(BaseAttachmentModel):
     )
 
     def __str__(self):
+        # pylint: disable=invalid-str-returned
         return self.product.name
 
     class Meta:
@@ -31,7 +32,7 @@ class ProductInstanceAttachment(BaseAttachmentModel):
     )
 
     def __str__(self):
-        return self.product_instance.name
+        return self.product_instance.product.name
 
     class Meta:
         verbose_name = _("product instance attachment")

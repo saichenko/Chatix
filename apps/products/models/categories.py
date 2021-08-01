@@ -28,6 +28,7 @@ class Category(BaseModel):
     )
 
     def __str__(self):
+        # pylint: disable=invalid-str-returned
         return self.name
 
     class Meta:
