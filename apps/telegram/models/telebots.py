@@ -25,6 +25,7 @@ class TeleBot(BaseModel):
     )
 
     def __str__(self):
+        # pylint: disable=invalid-str-returned
         return self.username
 
     class Meta:

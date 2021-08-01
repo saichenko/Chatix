@@ -40,6 +40,7 @@ class Coupon(BaseModel):
     )
 
     def __str__(self):
+        # pylint: disable=invalid-str-returned
         return self.code
 
     class Meta:

@@ -32,6 +32,7 @@ class ProductInstanceAttachment(BaseAttachmentModel):
     )
 
     def __str__(self):
+        # pylint: disable=invalid-str-returned
         return self.product_instance.product.name
 
     class Meta:

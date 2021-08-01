@@ -68,6 +68,7 @@ class Shop(models.Model):
     )
 
     def __str__(self):
+        # pylint: disable=invalid-str-returned
         return self.name
 
     class Meta:
